@@ -38,10 +38,10 @@ def update():
 #Menghapus daftar
 def delete():
    n = int(input(" "*3 + "Masukan ID:  "))
-   file = open("data.txt", "r")
+   file = open("list.txt", "r")
    ls = file.readlines()
    del ls[n]
-   file = open("data.txt", "w+")
+   file = open("list.txt", "w+")
    for line in ls:
       file.write(line)
    file.close()
@@ -53,6 +53,7 @@ def delete_all():
    file.seek(0)
    file.truncate()
    file.close()
+   print(" "*3 + "Semua daftar telah di hapus")
 
 #menampilkan menu
 def menu():
