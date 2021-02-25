@@ -15,7 +15,7 @@ def read():
 
 #Menambahkan daftar
 def create():
-   file = open(".txt", "a")
+   file = open("list.txt", "a")
    file.write(input(" "*3 + "Masukan daftar: "))
    file.write("\n")
    #menambahkan linebreak agar input terindex
@@ -30,8 +30,6 @@ def update():
    ls = file.readlines()
    ls[n] = input(" "*3 + "Masukan daftar baru: ")
    ls[n] += "\n"
-   file.close()
-   
    file = open("list.txt", "w")
    file.writelines(ls)
    file.close()
@@ -39,15 +37,13 @@ def update():
 
 #Menghapus daftar
 def delete():
-   n = input("   Masukan nama daftar: ")
-   file = open("list.txt", "r")
+   n = int(input(" "*3 + "Masukan ID:  "))
+   file = open("data.txt", "r")
    ls = file.readlines()
-   file.close()
-   
-   file = open("list.txt", "w")
+   del ls[n]
+   file = open("data.txt", "w+")
    for line in ls:
-      if line.strip("\n") != n:
-         file.write(line)
+      file.write(line)
    file.close()
    read()
 
@@ -61,37 +57,38 @@ def delete_all():
 #menampilkan menu
 def menu():
    print("""
-                   __     
-      ____  ____  / /____ ___ _ 
-     / __ \/ __ \/ __/ _ \ ___ _ 
-    / / / / /_/ / /_/ ___/ ___ _ 
-   /_/ /_/\____/\__/\___/ ___ _ 
+      __            __         ___      __
+     / /_____  ____/ /___     / (_)____/ /_
+    / __/ __ \/ __  / __ \   / / / ___/ __/
+   / /_/ /_/ / /_/ / /_/ /  / / (__  ) /_
+   \__/\____/\__,_/\____/  /_/_/____/\__/
+
    by: fioneri.
 
-   [0] Tambahkan daftar 
-   [1] Lihat daftar 
-   [2] Edit daftar 
-   [3] Hapus daftar 
-   [4] Hapus semua daftar 
-   [5] Keluar
+   [T] Tambahkan daftar 
+   [L] Lihat daftar 
+   [E] Edit daftar 
+   [H] Hapus daftar 
+   [S] Hapus semua daftar 
+   [Q] Keluar
    """)
 
 def main_menu(): 
-   choice = int(input(" "*3 + "→ "))
-   if choice == 0:
+   choice = input(" "*3 + "Masukan perintah → ")
+   if choice == "T" or choice == "t":
      create()
-   elif choice == 1:
+   elif choice == "L" or choice == "l":
      read()
-   elif choice == 2:
+   elif choice == "E" or choice == "e":
      update()
-   elif choice == 3:
+   elif choice == "H" or choice == "h":
      delete()
-   elif choice == 4:
+   elif choice == "S" or choice == "s":
      delete_all()
-   elif choice == 5:
+   elif choice == "Q" or choice == "q":
      exit()
    else:
-     print("Input tidak tersedia")
+     print(" "*3 + "Perintah tidak tersedia")
 
 menu()
 if __name__ == "__main__":
