@@ -1,7 +1,7 @@
 #Melihat daftar
+#Show lists
 def read():
    i = 0
-   print("")
    print(" "*3 + "Daftar: ")
    file = open("list.txt", "r")
    ls = file.readlines()
@@ -14,6 +14,7 @@ def read():
    print("")
 
 #Menambahkan daftar
+#Add list
 def create():
    file = open("list.txt", "a")
    new_list = file.write(input(" "*3 + "Masukan daftar: "))
@@ -24,6 +25,7 @@ def create():
    read()
 
 #Mengedit daftar
+#Edit lists
 def update():
    n = int(input(" "*3 + "Masukan ID: "))
    file = open("list.txt", "r")
@@ -36,6 +38,7 @@ def update():
    read()
 
 #Menghapus daftar
+#delete list
 def delete():
    n = int(input(" "*3 + "Masukan ID:  "))
    file = open("list.txt", "r")
@@ -49,6 +52,7 @@ def delete():
 
 
 #Menghapus semua daftar
+#delete all lists
 def delete_all():
    file = open("list.txt", "r+")
    file.seek(0)
@@ -58,6 +62,7 @@ def delete_all():
    print("")
 
 #menampilkan menu
+#Show menu
 def menu():
    print("""
       __            __         ___      __
@@ -75,6 +80,7 @@ def menu():
    [Q] Keluar
    """)
 
+#Main menu
 def main_menu(): 
    choice = input(" "*3 + "Masukan perintah → ")
    print("")
