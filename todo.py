@@ -16,7 +16,7 @@ def read():
 #Menambahkan daftar
 def create():
    file = open("list.txt", "a")
-   file.write(input(" "*3 + "Masukan daftar: "))
+   new_list = file.write(input(" "*3 + "Masukan daftar: "))
    file.write("\n")
    #menambahkan linebreak agar input terindex
    #oleh list
@@ -47,6 +47,7 @@ def delete():
    file.close()
    read()
 
+
 #Menghapus semua daftar
 def delete_all():
    file = open("list.txt", "r+")
@@ -54,6 +55,7 @@ def delete_all():
    file.truncate()
    file.close()
    print(" "*3 + "Semua daftar telah di hapus")
+   print("")
 
 #menampilkan menu
 def menu():
@@ -63,7 +65,6 @@ def menu():
     / __/ __ \/ __  / __ \   / / / ___/ __/
    / /_/ /_/ / /_/ / /_/ /  / / (__  ) /_
    \__/\____/\__,_/\____/  /_/_/____/\__/
-
    by: fioneri.
 
    [T] Tambahkan daftar 
@@ -76,6 +77,7 @@ def menu():
 
 def main_menu(): 
    choice = input(" "*3 + "Masukan perintah → ")
+   print("")
    if choice == "T" or choice == "t":
      create()
    elif choice == "L" or choice == "l":
