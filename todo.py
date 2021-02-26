@@ -17,8 +17,13 @@ def read():
 #Add list
 def create():
    file = open("list.txt", "a")
-   new_list = file.write(input(" "*3 + "Masukan daftar: "))
-   file.write("\n")
+   while True:
+      new_list = input(" "*3 + "Masukan daftar: ")
+      if new_list != "q":
+         file.write(new_list)
+         file.write("\n")
+      else:
+         break
    #menambahkan linebreak agar input terindex
    #oleh list
    file.close()
